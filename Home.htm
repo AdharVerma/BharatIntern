@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Attendance System</title>
+        <style>
+            .object {
+                background-color: rgba(0, 0, 0, 0.3);
+                cursor: pointer;
+                font-size: large; 
+                font-weight: bold; 
+                color: white; 
+                padding: 30px; 
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                transition: 1s;
+                }
+            .object:hover { 
+                background-color: rgba(255, 255, 255, 0.8);
+                color: black;
+                }
+        </style>
+    </head>
+    <body style="margin: 0px; background-color: rgb(227, 244, 219);font-family: Verdana, Geneva, Tahoma, sans-serif;">        
+        <div  style="color: black;  cursor: default;  font-size: large; font-weight: bold; background-color: white; margin: 0px;" >
+            <img src="Picture1.jpg" height="80px"; width="80px" style="float: left; top: 0px;">
+            <center style="padding: 2.5%">Attendance System</center> 
+        </div>
+        <center>
+            <img src="Screenshot 2023-06-07 140531.png" style="float : right; margin-right: 80px;" height="500px" width="500px">
+            <h1 ><br><br><br>Attendance management that empowers your workforce</h1>
+            <br><br><br><br> 
+            <input type="text" id="studentID" placeholder="Enter Student ID" style="padding:6px"><br>   
+            <select name="attendance" id="attendance" style="padding: 10px; cursor: pointer; padding-left: 30px; padding-right: 30px; ">
+                <option value="Present">Present</option>
+                <option value="Abscent">Abscent</option>
+                <option value="Approved Leave">Approved Leave</option>
+                <option value="Medical Leave">Medical Leave</option>
+                </select>
+            <br><br><br><br>
+            <button onclick="myFunction()" id = "Button" style="padding: 10px; cursor: pointer; font-weight: bold; padding-left: 30px; padding-right: 30px; font-family: Verdana, Geneva, Tahoma, sans-serif;">Submit</button>
+            <br><br><br><br>
+            <a download="Status.txt" href='#' id="link">Download</a>
+            <img src="Screenshot 2023-06-07 151540.png" width="100%">    
+            <h2 style="margin-top: 10%; margin-bottom: 5%;">Empower your employees</h2>
+            <div style="margin: 100px;">Plan better with real-time information on employee absences. Keep your mobile workforce agile with IP and location-based attendance marking. Improve your employee engagement by allowing your employees to check-in from the web and mobile app, view their attendance, and raise requests for regularization.
+        </center></div>
+        <div style="background-color: rgb(255,242,175); margin: 0px;">
+            <br><br>
+            <center><img src="Screenshot 2023-06-07 153312.png" width="50%"></center>
+            <br></div>
+            
+        <script>
+                function myFunction(){
+                    document.getElementById("Button").innerHTML = "Submitted";
+                    let y = document.getElementById("studentID").value
+                    let x = document.getElementById("attendance").value
+                    let date = new Date().toDateString();
+                    let data ="StudentID,Status,Date \n"+ y + "," + x + "," +  date +  "\n";
+                    
+                    let blob = new Blob([data], {type: 'text/plain'});
+                    link.href = URL.createObjectURL(blob);
+
+                }
+            </script>
+    </body>
+</html>
