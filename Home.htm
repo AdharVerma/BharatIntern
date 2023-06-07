@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Data Leak Detection</title>
+        <style>
+            .object {
+                background-color: rgba(0, 0, 0, 0.3);
+                cursor: pointer;
+                font-size: large; 
+                font-weight: bold; 
+                color: white; 
+                padding: 30px; 
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                transition: 1s;
+                }
+            .object:hover { 
+                background-color: rgba(255, 255, 255, 0.8);
+                color: black;
+                }
+        </style>
+    </head>
+    <body style="margin: 0px;">
+            <center>
+                    <p  style="color: white;  cursor: default; font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: large; font-weight: bold; background-color: black; padding: 2%; margin: 0px;" >
+                Data Leak Protection System 
+                </p>
+                <video  autoplay muted loop style="max-height: 150%; max-width: 100%; position: fixed; z-index: -1; top: 0; left: 0;">
+                    <source src="pexels-mikhail-nilov-7534264-1920x1080-25fps.mp4" type="video/mp4">
+                </video>
+                
+                <br><br><br><br>  <br><br><br><br>  <br><br><br><br>   <br><br><br><br>  
+                
+                    <label for="file" class="object" id="label" >Click here to upload a file</label><br>
+                    <input type="file" id="file" name="file" style="visibility: hidden;" >
+                    <br><br><br><br>
+                    <button onclick="myFunction()" id = "Button" style="padding: 10px; cursor: pointer; font-weight: bold; padding-left: 30px; padding-right: 30px; font-family: Verdana, Geneva, Tahoma, sans-serif;">Submit</button>
+                    <br><br><br><br><p id = "xx" style="visibility: hidden;"><a download="welcome.txt"  href='#' id="link" style="text-decoration: none; color: black;">Download</a></p> 
+            </center>
+            <script>
+                function myFunction(){
+                    let y = document.getElementById("file")
+                    let x = new FileReader();
+                    x.readAsText(y.files[0])
+                    x.onload = function(){
+                        let encryptedData = window.btoa(x.result)
+                        document.getElementById("label").innerHTML = "File encrypted successfully";
+                        let blob = new Blob([encryptedData], {type: 'text/plain'});
+                        link.href = URL.createObjectURL(blob);
+                        document.getElementById("Button").innerHTML = document.getElementById("xx").innerHTML;
+                    }
+                }
+            </script>
+    </body>
+</html>
